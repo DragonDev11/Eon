@@ -37,17 +37,17 @@ int editFile(char* path){
     }
     for (int i=0; i<MAX_LINES; i++){
         while (1){
-		if (fgets(string, MAX_WIDTH, stdin) != NULL){
-			if (string[0] == '~' && string[1] == '\n'){
-				printf("Saving file...\n");
-				free(string);
-				fclose(file);
-				return 0;
-			}else{
-				fprintf(file, "%s", string);
-			}
-		}
-	}
+            if (fgets(string, MAX_WIDTH, stdin) != NULL){
+                if (string[0] == '~' && string[1] == '\n'){
+                    printf("Saving file...\n");
+                    free(string);
+                    fclose(file);
+                    return 0;
+                }else{
+                    fprintf(file, "%s", string);
+                }
+            }
+        }
     }
 }
 
@@ -57,7 +57,7 @@ int writeFile(char* path){
         printf("ERROR: File creation failed.\n");
         return 2;
     }
-    fseek(file, -1, SEEK_END);
+    fseek(file, 0, SEEK_END);
     char* string = (char*)malloc(MAX_WIDTH*sizeof(char));
     if (string==NULL){
         printf("ERROR: Memory allocation failure.\n");
@@ -87,7 +87,7 @@ int readFile(char* path){
     }
 
     int c = fgetc(file);
-    
+
     while (c != EOF){
         putchar(c);
         c = fgetc(file);
@@ -102,7 +102,7 @@ int readFile(char* path){
     }
     switch (action){
         case 1:
-            system("cls");
+            system("clear");
             editFile(path);
             break;
         case 2:
@@ -113,10 +113,10 @@ int readFile(char* path){
 }
 
 int newFile(char* path){
-    system("cls");
+    system("clear");
     int ret;
     ret = writeFile(path);
-    
+
     if (ret==0){
         printf("File saved succesfully.\n");
     }
@@ -124,12 +124,12 @@ int newFile(char* path){
 }
 
 int openFile(char* path){
-    system("cls");
+    system("clear");
     return readFile(path);
 }
 
 void Menu(){
-    printf("\t\tFile Editor\n");
+    printf("\t\tEon Editor\n");
     printf("\t1- New\n");
     printf("\t2- Open\n");
     printf("\t3- Edit\n");
@@ -146,14 +146,15 @@ void Menu(){
             filePath = (char*)malloc(MAX_FILE_PATH*sizeof(char));
             printf("\nFile name with extension: ");
             scanf("%s", filePath);
+	    system("clear");
             newFile(filePath);
             free(filePath);
-            system("cls");
             break;
         case 2:
             filePath = (char*)malloc(MAX_FILE_PATH*sizeof(char));
             printf("\nFile name with extension: ");
             scanf("%s", filePath);
+	    system("clear");
             openFile(filePath);
             free(filePath);
             break;
@@ -161,20 +162,20 @@ void Menu(){
             filePath = (char*)malloc(MAX_FILE_PATH*sizeof(char));
             printf("\nFile path with extension: ");
             scanf("%s", filePath);
+	    system("clear");
             editFile(filePath);
             free(filePath);
-            system("cls");
             break;
         case 4:
             filePath = (char*)malloc(MAX_FILE_PATH*sizeof(char));
             printf("\nFile path with extension: ");
             scanf("%s", filePath);
+	    system("clear");
             Remove(filePath);
             free(filePath);
-            system("cls");
             break;
         case 5:
-            printf("Quitting...");
+            printf("Quitting...\n");
             exit(0);
             break;
     }
@@ -187,9 +188,3 @@ int main(){
     }
     return 0;
 }
-
-
-// comment
-// test
-
-// test again
