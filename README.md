@@ -21,8 +21,8 @@ Eon is a simple file editor written in C, designed for efficient text editing ta
   Clone the repository and build the executable:
 
 ```
-git clone https://github.com/your-username/eon-file-editor.git
-cd eon-file-editor
+git clone https://github.com/your-username/Eon.git
+cd Eon
 make  # or use cmake if you have CMakeLists.txt
 ```
 
