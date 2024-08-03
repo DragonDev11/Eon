@@ -139,12 +139,16 @@ int openFile(char* path){
 }
 
 void Menu(){
-    printf("\t\tEon Editor\n");
-    printf("\t1- New\n");
-    printf("\t2- Open\n");
-    printf("\t3- Edit\n");
-    printf("\t4- Delete\n");
-    printf("\t5- Quit\n");
+    printf("\n");
+    printf("~~~~~~~~~~~~ Eon Editor ~~~~~~~~~~~~\n");
+    printf("|                                   |\n");
+    printf("|   1 - New File                    |\n");
+    printf("|   2 - Open File                   |\n");
+    printf("|   3 - Edit File                   |\n");
+    printf("|   4 - Delete File                 |\n");
+    printf("|   5 - Quit                        |\n");
+    printf("|                                   |\n");
+    printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
     int action=0;
     while (action<=0 || action>5){
         printf("Action: ");
