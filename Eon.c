@@ -1,11 +1,21 @@
 #include<stdio.h>
 #include<stdlib.h>
 
-#define MAX_LINES 1048576
-#define MAX_WIDTH 500000
-#define MAX_FILE_PATH 255
+#define MAX_LINES 1048576 // 2^20
+#define MAX_WIDTH 1048576 // 2^20
+#define MAX_FILE_PATH 255 // longest path a file can have
 
 FILE* file;
+
+void clear_screen() {
+    #if defined(_WIN32) || defined(_WIN64)
+        system("cls");
+    #elif defined(__linux__) || defined(__APPLE__)
+        clear_screen();
+    #else
+        printf("Cannot clear the terminal for this OS.\n");
+    #endif
+}
 
 int Remove(char* path){
     int ret = remove(path);
@@ -102,7 +112,7 @@ int readFile(char* path){
     }
     switch (action){
         case 1:
-            system("clear");
+            clear_screen();
             editFile(path);
             break;
         case 2:
@@ -113,7 +123,7 @@ int readFile(char* path){
 }
 
 int newFile(char* path){
-    system("clear");
+    clear_screen();
     int ret;
     ret = writeFile(path);
 
@@ -124,7 +134,7 @@ int newFile(char* path){
 }
 
 int openFile(char* path){
-    system("clear");
+    clear_screen();
     return readFile(path);
 }
 
@@ -146,7 +156,7 @@ void Menu(){
             filePath = (char*)malloc(MAX_FILE_PATH*sizeof(char));
             printf("\nFile name with extension: ");
             scanf("%s", filePath);
-	    system("clear");
+            clear_screen();
             newFile(filePath);
             free(filePath);
             break;
@@ -154,7 +164,7 @@ void Menu(){
             filePath = (char*)malloc(MAX_FILE_PATH*sizeof(char));
             printf("\nFile name with extension: ");
             scanf("%s", filePath);
-	    system("clear");
+            clear_screen();
             openFile(filePath);
             free(filePath);
             break;
@@ -162,7 +172,7 @@ void Menu(){
             filePath = (char*)malloc(MAX_FILE_PATH*sizeof(char));
             printf("\nFile path with extension: ");
             scanf("%s", filePath);
-	    system("clear");
+            clear_screen();
             editFile(filePath);
             free(filePath);
             break;
@@ -170,7 +180,7 @@ void Menu(){
             filePath = (char*)malloc(MAX_FILE_PATH*sizeof(char));
             printf("\nFile path with extension: ");
             scanf("%s", filePath);
-	    system("clear");
+            clear_screen();
             Remove(filePath);
             free(filePath);
             break;
