@@ -7,11 +7,11 @@
 
 FILE* file;
 
-void clear_screen() {
+void clear_screen(){
     #if defined(_WIN32) || defined(_WIN64)
         system("cls");
     #elif defined(__linux__) || defined(__APPLE__)
-        clear_screen();
+        system("clear");
     #else
         printf("Cannot clear the terminal for this OS.\n");
     #endif
@@ -202,3 +202,4 @@ int main(){
     }
     return 0;
 }
+// This is an comment written using my Eon text editor
