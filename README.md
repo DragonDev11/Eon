@@ -2,7 +2,7 @@
 
 # Eon File Editor
 
-Eon is a simple file editor written in C, designed for efficient text editing tasks.
+Eon is a simple file editor written in C, designed for NOT efficient text editing tasks.
 
   ## Features
 
