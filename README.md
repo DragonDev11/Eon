@@ -31,7 +31,7 @@ make  # or use cmake if you have CMakeLists.txt
   Run the executable to start Eon:
 
 ```
-./eon
+.\output.exe or ./output
 ```
 
 ## Contributing
